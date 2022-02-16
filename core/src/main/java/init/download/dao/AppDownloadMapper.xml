@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="init.download.dao.AppDownloadDao">
+
+	<sql id="fullField">
+		id,
+		package_name,
+		show_name,
+		icon_uri,
+		download_code,
+		file_code,
+		version,
+		create_time,
+		update_time 
+	</sql>
+	
+	<resultMap type="AppDTO" id="appDTOResultMap">
+		<id property="id" column="id"/>
+		<result property="packageName" column="package_name"/>
+		<result property="showName" column="show_name"/>
+		<result property="iconUri" column="icon_uri"/>
+		<result property="downloadCode" column="download_code"/>
+		<result property="fileCode" column="file_code"/>
+		<result property="version" column="version"/>
+		<result property="createTime" column="create_time"/>
+		<result property="updateTime" column="update_time"/>
+	</resultMap>
+	
+    <select id="getAppInfoByDownloadCode" resultMap="appDTOResultMap">
+        SELECT
+		<include refid="fullField"/>
+		FROM
+			app_info 
+		WHERE
+			download_code=#{download_code}
+    </select>
+
+</mapper>

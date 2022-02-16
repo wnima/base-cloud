@@ -1,0 +1,27 @@
+server:
+  port: 8070
+spring:
+  application:
+    name: base-core
+  messages:
+    basename: static/i18n/messages
+  cloud:
+    nacos:
+      config: 
+        server-addr: 172.17.0.6:8848
+        password: nacos
+        username: nacos
+        file-extension: yml
+      discovery:
+        server-addr: 172.17.0.6:8848
+        password: nacos
+        username: nacos
+  datasource: 
+      url: jdbc:mysql://172.17.0.3:3306/bt_info?useSSL=false
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: root
+
+mybatis: 
+  type-aliases-package: init.download.model.dto
+  mapper-locations: classpath:init/download/dao/*.xml
