@@ -1,19 +1,9 @@
-server:
-  port: 80
 spring:
   application:
     name: base-api
+  profiles:
+    active: ${LIVE_ENV:dev}
   messages:
     basename: static/i18n/messages
-  cloud:
-    nacos:
-      config: 
-        server-addr: 172.17.0.6:8848
-        password: nacos
-        username: nacos
-        file-extension: yml
-      discovery:
-        server-addr: 172.17.0.6:8848
-        password: nacos
-        username: nacos
-debug: false
+logging: 
+  config: classpath:logback-spring.xml

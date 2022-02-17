@@ -1,3 +1,5 @@
 /api/target/
 /core/target/
 /model/target/
+/.vscode/
+log
